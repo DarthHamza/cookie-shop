@@ -1,19 +1,49 @@
-const styles = {
-    body: { backgroundColor: "#FBFEFC" },
-    cookie: { margin: "20px" },
-    cookieImage: { width: "200px", height: "200px" },
-    list: {
-      alignItems: "center",
-      justifyContent: "center",
-      display: "flex",
-    },
-    shopImage: {
-      display: "block",
-      marginLeft: "auto",
-      marginRight: "auto",
-      width: "50%",
-    },
-    text: { textAlign: "center" },
-  };
-  
-  export default styles;
+import styled, { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+      color: ${ props => props.theme.mainColor };
+      background-color: ${ props => props.theme.backgroundColor };
+  }
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  color: purple;
+`;
+
+const Description = styled.h4`
+  text-align: center;
+`;
+
+const ShopImage = styled.img`
+  display: block,
+  margin-eft: auto,
+  margin-ight: auto,
+  width: 50%,
+`;
+
+const ListWrapper = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+const CookieWrapper = styled.div`
+  margin: 20px;
+
+  img {
+      width: 200px;
+      height: 200px;
+  }
+
+  p {
+      text-align: center;
+
+      &.cookie-price {
+          color: ${ props => props.theme.pink };
+      }
+  }
+`;
+
+export { Description, Title, ShopImage, ListWrapper, CookieWrapper, GlobalStyle};

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles";
+import { ListWrapper } from "../styles";
 import cookies from "../cookies";
 import CookieItem from "./CookieItem";
 
@@ -8,7 +8,7 @@ const CookieList = () => {
         <CookieItem cookie={ cookie } key={ cookie.id } />
     ))
     return (
-        <div style={ styles.list }>{ cookieList }</div>
+        <ListWrapper>{ cookieList }</ListWrapper>
     );
 };
 
