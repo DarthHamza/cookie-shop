@@ -2,14 +2,14 @@ import React from "react";
 import { CookieWrapper } from "../styles";
 
 const CookieItem = (props) => {
-    const cookie = props.cookie;
-    return (
-        <CookieWrapper>
-            <img alt={ cookie.name } src={ cookie.image }/>
-            <p>{ cookie.name }</p>
-            <p className="cookie-price">{ cookie.price } KD</p>
-        </CookieWrapper>
-    );
+  const cookie = props.cookie;
+  return (
+    <CookieWrapper>
+      <img alt={cookie.name} src={cookie.image} />
+      <p>{cookie.name}</p>
+      <p className="cookie-price">{cookie.price} KD</p>
+    </CookieWrapper>
+  );
 };
 
 export default CookieItem;

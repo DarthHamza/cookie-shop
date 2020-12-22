@@ -2,9 +2,18 @@ import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body {
-      color: ${ props => props.theme.mainColor };
-      background-color: ${ props => props.theme.backgroundColor };
+      color: ${(props) => props.theme.mainColor};
+      background-color: ${(props) => props.theme.backgroundColor};
   }
+`;
+
+const ThemeButton = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.backgroundColor};
 `;
 
 const Title = styled.h1`
@@ -33,17 +42,33 @@ const CookieWrapper = styled.div`
   margin: 20px;
 
   img {
-      width: 200px;
-      height: 200px;
+    width: 200px;
+    height: 200px;
   }
 
   p {
-      text-align: center;
+    text-align: center;
 
-      &.cookie-price {
-          color: ${ props => props.theme.pink };
-      }
+    &.cookie-price {
+      color: ${(props) => props.theme.pink};
+    }
   }
 `;
 
-export { Description, Title, ShopImage, ListWrapper, CookieWrapper, GlobalStyle};
+const SearchBarStyled = styled.input`
+  padding: 0.5px;
+  margin: 1rem auto;
+  display: block;
+  width: 40%;
+`;
+
+export {
+  Description,
+  Title,
+  ShopImage,
+  ListWrapper,
+  CookieWrapper,
+  GlobalStyle,
+  ThemeButton,
+  SearchBarStyled,
+};

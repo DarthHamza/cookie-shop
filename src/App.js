@@ -1,18 +1,40 @@
-import React from "react";
-import {Description, ShopImage, Title, GlobalStyle} from "./styles";
+import React, { useState } from "react";
+import {
+  Description,
+  ShopImage,
+  Title,
+  GlobalStyle,
+  ThemeButton,
+} from "./styles";
 import CookieList from "./components/CookieList";
 import { ThemeProvider } from "styled-components";
 
 const theme = {
-  mainColor: "#242424",
-  backgroundColor: "#fefafb",
-  pink: "#ff85a2",
-}
+  light: {
+    mainColor: "#242424",
+    backgroundColor: "#fefafb",
+    pink: "#ff85a2",
+  },
+  dark: {
+    mainColor: "#fefafb",
+    backgroundColor: "#242424",
+    pink: "#ff85a2",
+  },
+};
 
 function App() {
+  const [currentTheme, setCurrentTheme] = useState("light");
+  const toggleTheme = () => {
+    setCurrentTheme(currentTheme === "light" ? "dark" : "light");
+  };
+
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle/>
+    <ThemeProvider theme={theme[currentTheme]}>
+      <GlobalStyle />
+      <ThemeButton onClick={toggleTheme}>
+        {" "}
+        {currentTheme === "light" ? "Dark" : "Light"} Mode
+      </ThemeButton>
       <Title>Cookies and Beyond</Title>
       <Description>Where cookie maniacs gather</Description>
       <ShopImage
