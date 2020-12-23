@@ -16,6 +16,10 @@ const ThemeButton = styled.button`
   color: ${(props) => props.theme.backgroundColor};
 `;
 
+const DeleteButtonStyled = styled.p`
+  color: ${(props) => props.theme.red};
+`;
+
 const Title = styled.h1`
   text-align: center;
   color: purple;
@@ -36,6 +40,22 @@ const ListWrapper = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
+`;
+
+const DetailWrapper = styled.div`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+
+  img {
+    width: 40%;
+    float: left;
+  }
+
+  p {
+    vertical-align: middle;
+  }
 `;
 
 const CookieWrapper = styled.div`
@@ -71,4 +91,6 @@ export {
   GlobalStyle,
   ThemeButton,
   SearchBarStyled,
+  DetailWrapper,
+  DeleteButtonStyled,
 };
