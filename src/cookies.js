@@ -2,6 +2,7 @@ const cookies = [
   {
     id: 1,
     name: "Chocolate Chip Cookie",
+    slug: "chocolate-chip-cookie",
     price: 10,
     description: "some cookie, sold by the dozen",
     image:
@@ -10,6 +11,7 @@ const cookies = [
   {
     id: 2,
     name: "Adorable Cookie",
+    slug: "adorable-cookie",
     price: 15,
     description: "some cookie, sold by the dozen",
     image:
@@ -18,6 +20,7 @@ const cookies = [
   {
     id: 3,
     name: "Katakeet Cookie",
+    slug: "katakeet-cookie",
     price: 7,
     description: "some cookie, sold by the dozen",
     image:

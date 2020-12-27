@@ -1,4 +1,22 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { NavLink, Link } from "react-router-dom";
+
+export const Logo = styled(Link)`
+  padding: 0.75em;
+  img {
+    width: 8rem;
+  }
+`;
+
+export const NavItem = styled(NavLink)`
+  padding: 0.25em 1em;
+  color: black;
+
+  &.active {
+    color: grey;
+    background-color: pink;
+  }
+`;
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -7,9 +25,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const NavStyled = styled.nav`
+  background-color: ${(props) => props.theme.backgroundColor};
+`;
+
 const ThemeButton = styled.button`
   font-size: 1em;
-  margin: 1.25em;
   padding: 0.25em 1em;
   border-radius: 3px;
   background-color: ${(props) => props.theme.mainColor};
@@ -59,8 +80,6 @@ const DetailWrapper = styled.div`
 `;
 
 const CookieWrapper = styled.div`
-  margin: 20px;
-
   img {
     width: 200px;
     height: 200px;
@@ -93,4 +112,5 @@ export {
   SearchBarStyled,
   DetailWrapper,
   DeleteButtonStyled,
+  NavStyled,
 };

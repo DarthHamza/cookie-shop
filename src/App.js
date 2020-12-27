@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { GlobalStyle, ThemeButton } from "./styles";
+import { GlobalStyle } from "./styles";
 import CookieList from "./components/CookieList";
 import CookieDetail from "./components/CookieDetail";
 import Home from "./components/Home";
 import { ThemeProvider } from "styled-components";
 import cookies from "./cookies";
 import { Route, Switch } from "react-router";
+import NavBar from "./components/NavBar";
 
 const theme = {
   light: {
@@ -39,11 +40,9 @@ function App() {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <ThemeButton onClick={toggleTheme}>
-        {currentTheme === "light" ? "Dark" : "Light"} Mode
-      </ThemeButton>
+      <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
       <Switch>
-        <Route path="/cookies/:cookieId">
+        <Route path="/cookies/:cookieSlug">
           <CookieDetail cookies={_cookies} deleteCookie={deleteCookie} />
         </Route>
         <Route path="/cookies">
