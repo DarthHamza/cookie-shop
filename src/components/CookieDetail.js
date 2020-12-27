@@ -1,9 +1,11 @@
 import React from "react";
 import { DetailWrapper } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
+import { useParams } from "react-router-dom";
 
 const CookieDetail = (props) => {
-  const cookie = props.cookie;
+  const cookieId = useParams().cookieId;
+  const cookie = props.cookies.find((cookie) => cookie.id === +cookieId);
   console.log(cookie);
   return (
     <DetailWrapper>
