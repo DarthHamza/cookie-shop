@@ -14,7 +14,7 @@ const CookieItem = ({ cookie, deleteCookie }) => {
       </Link>
       <p>{cookie.name}</p>
       <p className="cookie-price">{cookie.price} KD</p>
-      <DeleteButton cookieId={cookie.id} deleteCookie={deleteCookie} />
+      <DeleteButton cookieId={cookie.id} />
     </CookieWrapper>
   );
 };

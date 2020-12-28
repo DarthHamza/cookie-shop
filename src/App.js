@@ -30,11 +30,6 @@ function App() {
   };
 
   const [_cookies, setCookies] = useState(cookies);
-  const deleteCookie = (cookieId) => {
-    const updatedCookies = _cookies.filter((cookie) => cookie.id !== cookieId);
-    setCookies(updatedCookies);
-  };
-
   const [cookie, setCookie] = useState(null);
 
   return (
@@ -43,14 +38,10 @@ function App() {
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
       <Switch>
         <Route path="/cookies/:cookieSlug">
-          <CookieDetail cookies={_cookies} deleteCookie={deleteCookie} />
+          <CookieDetail cookies={_cookies} />
         </Route>
         <Route path="/cookies">
-          <CookieList
-            cookies={_cookies}
-            deleteCookie={deleteCookie}
-            setCookie={setCookie}
-          />
+          <CookieList cookies={_cookies} setCookie={setCookie} />
         </Route>
         <Route exact path="/">
           <Home />
