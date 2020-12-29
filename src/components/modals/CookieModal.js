@@ -2,23 +2,26 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { CreateButtonStyled } from "../../styles";
 import { useDispatch } from "react-redux";
-import { createCookie } from "../../store/actions";
+import { createCookie, updateCookie } from "../../store/actions";
 
-const CookieModal = ({ isOpen, closeModal }) => {
+const CookieModal = ({ isOpen, closeModal, oldCookie }) => {
   const dispatch = useDispatch();
-  const [cookie, setCookie] = useState({
-    name: "",
-    price: 1,
-    description: "",
-    image: "",
-  });
+  const [cookie, setCookie] = useState(
+    oldCookie ?? {
+      name: "",
+      price: 0,
+      description: "",
+      image: "",
+    }
+  );
   const handleChange = (event) => {
     console.log(event.target);
     setCookie({ ...cookie, [event.target.name]: event.target.value });
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(createCookie(cookie));
+    if (oldCookie) dispatch(updateCookie(cookie));
+    else dispatch(createCookie(cookie));
     closeModal();
   };
   return (
@@ -37,6 +40,7 @@ const CookieModal = ({ isOpen, closeModal }) => {
               name="name"
               className="form-control"
               onChange={handleChange}
+              value={cookie.name}
             />
           </div>
           <div className="col-6">
@@ -47,6 +51,7 @@ const CookieModal = ({ isOpen, closeModal }) => {
               type="number"
               className="form-control"
               onChange={handleChange}
+              value={cookie.price}
             />
           </div>
         </div>
@@ -57,6 +62,7 @@ const CookieModal = ({ isOpen, closeModal }) => {
             type="text"
             className="form-control"
             onChange={handleChange}
+            value={cookie.description}
           />
         </div>
         <div className="form-group">
@@ -66,10 +72,11 @@ const CookieModal = ({ isOpen, closeModal }) => {
             type="text"
             className="form-control"
             onChange={handleChange}
+            value={cookie.image}
           />
         </div>
         <CreateButtonStyled className="btn float-right">
-          Create
+          {oldCookie ? "Update" : "Create"}
         </CreateButtonStyled>
       </form>
     </Modal>

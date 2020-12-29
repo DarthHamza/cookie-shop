@@ -100,6 +100,7 @@ const SearchBarStyled = styled.input`
   display: block;
   width: 40%;
 `;
+
 const CreateButtonStyled = styled.button`
   color: ${(props) => props.theme.backgroundColor};
   background-color: ${(props) => props.theme.mainColor};
@@ -107,6 +108,10 @@ const CreateButtonStyled = styled.button`
     color: ${(props) => props.theme.mainColor};
     background-color: ${(props) => props.theme.backgroundColor};
   }
+`;
+
+const UpdateButtonStyled = styled.p`
+  color: ${(props) => props.theme.pink};
 `;
 export {
   Description,
@@ -121,4 +126,5 @@ export {
   DeleteButtonStyled,
   NavStyled,
   CreateButtonStyled,
+  UpdateButtonStyled,
 };

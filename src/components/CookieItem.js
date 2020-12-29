@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CookieWrapper } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
+import UpdateButton from "./buttons/UpdateButton";
 
 const CookieItem = ({ cookie, deleteCookie }) => {
   return (
@@ -14,6 +15,7 @@ const CookieItem = ({ cookie, deleteCookie }) => {
       </Link>
       <p>{cookie.name}</p>
       <p className="cookie-price">{cookie.price} KD</p>
+      <UpdateButton cookie={cookie} />
       <DeleteButton cookieId={cookie.id} />
     </CookieWrapper>
   );
