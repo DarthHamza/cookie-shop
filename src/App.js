@@ -4,7 +4,6 @@ import CookieList from "./components/CookieList";
 import CookieDetail from "./components/CookieDetail";
 import Home from "./components/Home";
 import { ThemeProvider } from "styled-components";
-import cookies from "./cookies";
 import { Route, Switch } from "react-router";
 import NavBar from "./components/NavBar";
 
@@ -29,7 +28,6 @@ function App() {
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
   };
 
-  const [_cookies, setCookies] = useState(cookies);
   const [cookie, setCookie] = useState(null);
 
   return (
@@ -38,10 +36,10 @@ function App() {
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
       <Switch>
         <Route path="/cookies/:cookieSlug">
-          <CookieDetail cookies={_cookies} />
+          <CookieDetail />
         </Route>
         <Route path="/cookies">
-          <CookieList cookies={_cookies} setCookie={setCookie} />
+          <CookieList setCookie={setCookie} />
         </Route>
         <Route exact path="/">
           <Home />
